@@ -1,0 +1,12 @@
+type User {
+  id: Int
+  name: String
+  email: String!
+  password: String!
+}
+
+type Query {
+  test: String @field(resolver: "Role@show")
+  users: [User!]! @all
+  user(id: Int): User @field(resolver: "User@find")
+}
