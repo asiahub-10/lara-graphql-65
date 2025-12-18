@@ -10,3 +10,12 @@ type Query {
   users: [User!]! @all
   user(id: Int): User @field(resolver: "User@find")
 }
+
+type Mutation{
+  createUser(name: String!, email: String!, password: String!): User!
+    @field(resolver: "User@create")
+  updateUser(id: Int!, name: String, email: String, password: String): User!
+    @field(resolver: "User@update")
+  deleteUser(id: Int!): String
+    @field(resolver: "User@delete")
+}
